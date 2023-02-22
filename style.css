@@ -10,7 +10,7 @@ h1  {
   text-align: center;
 }
 
-h3 {
+h2 {
   text-align: center;
 }
 
@@ -23,10 +23,8 @@ h3 {
   text-align: center;
 }
 
-/* Create Scatterplot*/
 #scatterplot {
-  border-left: 2px solid  #000;
-  border-bottom: 2px solid  #000;
+  border: none;
   width: 500px;
   height: 500px;
 }
@@ -34,13 +32,11 @@ h3 {
 /* Styles Left Column of Webpage*/
 .left {
   width: 60%;
-  padding: 20px;
 }
 
 /* Styles Right Column of Webpage*/
 .right {
   width: 40%;
-  padding: 20px;
 }
 
 /* Styles Effects of Events in Javascript Effects*/
@@ -53,5 +49,12 @@ h3 {
   stroke-width: 5;
 }
 
+.tooltip {
+  position: absolute;
+  z-index: 1;
+  background-color: #ffffff;
+  border: 1px solid #000000;
+  padding: 10px;
+}
 
 
