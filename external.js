@@ -38,7 +38,7 @@ d3.csv("data/scatter-data.csv").then(function(data) {
     .attr("id", (d) => {return "(" + d.x + "," + d.y + ")"})
     .attr("cx", (d) => xScale(+d.x) + margin.left)
     .attr("cy", (d) => yScale(+d.y) + margin.top)
-    .attr("r", 7)
+    .attr("r", 6)
   
   svg.append("g")
     .attr('transform', 'translate(' + margin.left + "," + (margin.top + circle_height) + ')')
