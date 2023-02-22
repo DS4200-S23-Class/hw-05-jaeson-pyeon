@@ -12,23 +12,20 @@ const svg = d3.select("#scatterplot")
   .attr("height", height)
   .attr("class", 'plot');
 
+// Define Function to Update Last Clicked Point
+function updateLastClickedText(x, y) {
+  const lastClicked = d3.select("#last-click");
+  lastClicked.text("Last Point Clicked: (" + x + ", " + y + ")");
+}
+
  // Define X and Y Scales to Map Data to SVG Container
   const xScale = d3.scaleLinear()
-    .domain([1, 9])
+    .domain([0, 10])
     .range([0, circle_width]);
 
   const yScale = d3.scaleLinear()
-    .domain([1, 9])
+    .domain([0, 10])
     .range([circle_height, 0]);
-
-// Define Function to Update Last Clicked Point
-function updateLastClickedText(clickedCircle) {
-  const x = Math.round((+clickedCircle.attr("cx").replace(margin.left, "")) / xScale(1));
-  const y = Math.round((+clickedCircle.attr("cy").replace(margin.top, "")) / yScale(1));
-  const lastClicked = d3.select("#last-click");
-   lastClicked.text("Last Point Clicked: (" + x.toFixed(0) + ", " + y.toFixed(0) + ")");
-}
-
 
 // Load Data from CSV File and Add Points to SVG Container
 d3.csv("data/scatter-data.csv").then(function(data) {
@@ -41,7 +38,7 @@ d3.csv("data/scatter-data.csv").then(function(data) {
     .attr("id", (d) => {return "(" + d.x + "," + d.y + ")"})
     .attr("cx", (d) => xScale(+d.x) + margin.left)
     .attr("cy", (d) => yScale(+d.y) + margin.top)
-    .attr("r", 6)
+    .attr("r", 7)
   
   svg.append("g")
     .attr('transform', 'translate(' + margin.left + "," + (margin.top + circle_height) + ')')
@@ -63,10 +60,9 @@ d3.csv("data/scatter-data.csv").then(function(data) {
     })
 
   // Add Click Event Listener to Each Point
-    .on("click", function() {
-    const clickedCircle = d3.select(this);
-    updateLastClickedText(clickedCircle);
-    clickedCircle.classed("clicked", !clickedCircle.classed("clicked"));
+    .on("click", function(d) {
+      updateLastClickedText(d.x, d.y);
+      d3.select(this).classed("clicked", !d3.select(this).classed("clicked"));
     });
 });
 
@@ -101,10 +97,9 @@ function buttonClick() {
     })
 
     // Add Click Event Listener to the New Point
-      .on("click", function() {
-    const clickedCircle = d3.select(this);
-    updateLastClickedText(clickedCircle);
-    clickedCircle.classed("clicked", !clickedCircle.classed("clicked"));
+    .on("click", function() {
+      updateLastClickedText(x, y);
+      d3.select(this).classed("clicked", !d3.select(this).classed("clicked"));
     });
 }
 
@@ -138,7 +133,7 @@ d3.csv("data/bar-data.csv").then((data) => {
             .range([barInnerHeight, 0])
 
     // Plot Points from CSV 
-    svg2.selectAll("bars")  
+    svg2.selectAll("bar")  
         .data(data) 
         .enter()       
         .append("rect")  
