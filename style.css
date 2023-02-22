@@ -1,0 +1,57 @@
+/* Styling for HW-04 Goes in this File */
+
+body {
+  font-family: Arial;
+  padding: 10px;
+}
+
+/* Center Heading*/
+h1  {
+  text-align: center;
+}
+
+h3 {
+  text-align: center;
+}
+
+/* Style Flexbox That Seperates Webpage*/
+.container {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: nowrap;
+  justify-content: space-between;
+  text-align: center;
+}
+
+/* Create Scatterplot*/
+#scatterplot {
+  border-left: 2px solid  #000;
+  border-bottom: 2px solid  #000;
+  width: 500px;
+  height: 500px;
+}
+
+/* Styles Left Column of Webpage*/
+.left {
+  width: 60%;
+  padding: 20px;
+}
+
+/* Styles Right Column of Webpage*/
+.right {
+  width: 40%;
+  padding: 20px;
+}
+
+/* Styles Effects of Events in Javascript Effects*/
+.highlighted {
+  fill: pink;
+}
+
+.clicked {
+  stroke: purple;
+  stroke-width: 5;
+}
+
+
+

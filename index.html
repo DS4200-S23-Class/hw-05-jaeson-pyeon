@@ -2,13 +2,58 @@
 <html> 
 
 <head>
+
+    <!-- Meta Data / Set Up-->
     <meta charset=utf-8/>
+
+    <!-- Title of Webpage-->
+    <title>hw-05</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="js/d3.v6.1.1/d3.min.js"></script>
 </head>
 
-
 <body>
+    <!-- Heading of Webpage-->
+    <h1>hw-05: Interactive Graph with D3</h1>
+    <!-- Create Two Columns on Webpage-->
+    <div class="container">
+        <!-- Left Column-->
+         <div class = "left">
+            <div id="scatterplot"></div>
+            <br>
+            <div id="bargraph"></div>
+        </div>
+        <!-- Right Column-->
+        <div class="right">
+            <input type="number" placeholder="Input X-Coordinate" name="X" id="X" maxlength="1">
+            <input type="number" placeholder="Input Y-Coordinate" name="Y" id="Y" maxlength="1">
+            <br>
+            <br>
+            <!-- Initiates Onclick Event When User Clicks on HTML Element-->
+            <button onclick="buttonClick()">Add Point</button>
+            <br>
+            <br>
+            <!-- ID Used to Add Event Listeners to Onclick Event-->
+            <div id="last-click">Last Point Clicked: </div>
+        </div>
+    </div>
 
+   <!--  Resources Used to Complete This Assignment-->
+   <h3>Acknowledgements</h3>
+    <ul>
+    <li><a href=" https://css-tricks.com/snippets/css/a-guide-to-flexbox/"> https://css-tricks.com/snippets/css/a-guide-to-flexbox/</a></li>
+    <li><a href="https://www.w3schools.com/html/html_form_input_types.asp">https://www.w3schools.com/html/html_form_input_types.asp</a></li>
+    <li><a href="https://developer.mozilla.org/en-US/docs/Web/API/Element/mouseover_event">https://developer.mozilla.org/en-US/docs/Web/API/Element/mouseover_event</a></li>
+    <li><a href="https://codepen.io/catheraaine/pen/QNgoEX">https://codepen.io/catheraaine/pen/QNgoEX</a></li>
+    <li><a href="https://api.jquery.com/mouseleave/">https://api.jquery.com/mouseleave/</a></li>
+    <li><a href="  https://endubueze00.medium.com/javascript-basics-string-concatenation-with-variables-and-interpolation-deba239debbe">  https://endubueze00.medium.com/javascript-basics-string-concatenation-with-variables-and-interpolation-deba239debbe</a></li>
+    <li><a href="https://www.w3schools.com/jsref/prop_html_innerhtml.asp">  
+    https://www.w3schools.com/jsref/prop_html_innerhtml.asp</a></li>
+    </ul>
+
+    <script src="https://d3js.org/d3.v6.js"></script>
+    <script src="external.js"></script>
+    
 
 </body>
-
 </html>
